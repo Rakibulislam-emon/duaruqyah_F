@@ -11,7 +11,6 @@ export default function CategoryContentCard({ getData }) {
   const [subcategories, setSubcategories] = useState([]);
   const [expandedCategoryId, setExpandedCategoryId] = useState(null);
 
-  // Wrap the handleGetSubData function in useCallback
   const handleGetSubData = useCallback(
     async (categoryId) => {
       if (expandedCategoryId === categoryId) {
@@ -67,7 +66,7 @@ export default function CategoryContentCard({ getData }) {
                   width={40}
                   height={40}
                   alt="category icon"
-                  style={{ width: "40px", height: "auto" }}
+                 
                 />
               )}
               <div>

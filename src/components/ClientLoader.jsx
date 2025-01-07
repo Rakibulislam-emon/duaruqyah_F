@@ -7,8 +7,8 @@ export default function ClientLoader({ children }) {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false); // Simulate a loading delay
-    }, 2000); // Adjust time as needed
+      setIsLoading(false);
+    }, 500); 
 
     return () => clearTimeout(timer);
   }, []);

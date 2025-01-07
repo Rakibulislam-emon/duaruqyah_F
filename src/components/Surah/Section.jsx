@@ -7,16 +7,16 @@ import Category from "../Category/Category";
 export default function Section() {
   const { sectionTitle } = useDuaContext();
   const [open, setOpen] = useState(false);
-  const categoryRef = useRef(null); // Reference for the Category component
+  const categoryRef = useRef(null); 
 
-  // Toggle the "open" state
+
   const toggle = () => setOpen((prev) => !prev);
 
-  // Close the category if clicked outside
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (categoryRef.current && !categoryRef.current.contains(event.target)) {
-        setOpen(false); // Close the category
+        setOpen(false); 
       }
     };
 

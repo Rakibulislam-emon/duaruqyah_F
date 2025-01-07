@@ -1,7 +1,7 @@
 import sqlite3 from 'sqlite3';
 import path from 'path';
 
-// Initialize the SQLite database connection
+
 const db = new sqlite3.Database(path.resolve('./public/dua_main.sqlite'), (err) => {
     if (err) {
         console.error('Error opening database:', err);
@@ -27,7 +27,7 @@ export default function handler(req, res) {
             }
         });
     } else {
-        // If no subcategoryId is provided, return all duas
+        // !subcategory then return all dua
         const query = 'SELECT * FROM dua';
 
         db.all(query, [], (err, rows) => {

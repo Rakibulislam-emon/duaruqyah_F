@@ -1,7 +1,7 @@
 import sqlite3 from 'sqlite3';
 import path from 'path';
 
-// Initialize the SQLite database connection
+
 const db = new sqlite3.Database(path.resolve('./public/dua_main.sqlite'), (err) => {
     if (err) {
       console.error('Error opening database:', err);
@@ -11,7 +11,7 @@ const db = new sqlite3.Database(path.resolve('./public/dua_main.sqlite'), (err) 
   });
 
   export default function handler(req, res) {
-    // Fetching data from the 'dua' table as an example
+    // Fetching data from the 'dua' table 
     const query = 'SELECT * FROM sub_category';
   
     db.all(query, [], (err, rows) => {

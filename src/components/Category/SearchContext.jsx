@@ -1,5 +1,4 @@
 "use client";
-// context/SearchContext.js
 import { createContext, useState, useContext } from "react";
 
 const SearchContext = createContext();

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import CategoryContentCard from './CategoryContentCard';
 import { useSearch } from './SearchContext';
-// 
+
 export default function CategoryContents() {
   const url = process.env.NEXT_PUBLIC_API_URL
 
@@ -22,7 +22,7 @@ export default function CategoryContents() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const result = await response.json();
-        setData(result); // Store the fetched data in state
+        setData(result); 
       } catch (err) {
         setError(err.message);
       } finally {
@@ -30,8 +30,8 @@ export default function CategoryContents() {
       }
     };
 
-    fetchData(); // Call fetchData to load the data
-  }, [url]); // Empty dependency array to ensure it runs only once when the component mounts
+    fetchData(); 
+  }, [url]); 
 
   // Filter data based on the searchTerm if it exists, otherwise show all data
   const filteredData = searchTerm
@@ -40,17 +40,15 @@ export default function CategoryContents() {
     )
     : data;
 
-  // Show loading or error states if applicable
   if (loading) return <p className='text-center'>loading....</p>;
   if (error) return <p>Error: {error}</p>;
 
-  // Return the data, either filtered or all data if no search term
   return (
     <div className='border w-full'>
       {filteredData.length > 0 ? (
         <CategoryContentCard getData={filteredData} />
       ) : (
-        <p>No categories found</p> // Display message if no data matches the search
+        <p>No categories found</p>
       )}
     </div>
   );

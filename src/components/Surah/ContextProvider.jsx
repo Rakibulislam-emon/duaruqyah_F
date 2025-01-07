@@ -1,10 +1,10 @@
 "use client"
 import React, { createContext, useState, useContext } from "react";
 
-// Create the context
+
 const DuaContext = createContext();
 
-// Create a provider component
+
 export const DuaProvider = ({ children }) => {
   const [subcategoryId, setSubcategoryId] = useState(null);
  
@@ -17,5 +17,5 @@ export const DuaProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use the context
+
 export const useDuaContext = () => useContext(DuaContext);
