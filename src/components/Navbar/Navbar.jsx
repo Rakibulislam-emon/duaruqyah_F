@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <div className=" flex justify-between items-center lg:mt-4  lg:h-20 px-4 md:px-8">
       {/* Logo or Title */}
-      <h1 className="text-3xl font-bold">Dua Page</h1>
+      <h1 className="md:text-2xl font-medium">Dua Page</h1>
 
       {/* Search Bar */}
       <div className="relative flex items-center">
@@ -29,7 +29,7 @@ export default function Navbar() {
         {search && (
           <IoClose
             onClick={() => setSearch("")}
-            className="text-xl absolute top-2.5 right-12 text-gray-500 hover:text-red-500 cursor-pointer duration-200"
+            className="text-xl absolute   right-12 text-gray-500 hover:text-red-500 cursor-pointer duration-200"
           />
         )}
         <span className="absolute top-0 right-0 flex items-center justify-center w-10 h-full bg-gray-200 text-gray-500 rounded-r-lg">

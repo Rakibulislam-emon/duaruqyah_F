@@ -11,40 +11,40 @@ export default function CategoryContentCard({ getData }) {
   const [subcategories, setSubcategories] = useState([]);
   const [expandedCategoryId, setExpandedCategoryId] = useState(null);
 
-  const handleGetSubData = async (categoryId) => {
-    if (expandedCategoryId === categoryId) {
-      setExpandedCategoryId(null); // Collapse if already expanded
-      return;
-    }
+  // Wrap the handleGetSubData function in useCallback
+  const handleGetSubData = useCallback(
+    async (categoryId) => {
+      if (expandedCategoryId === categoryId) {
+        setExpandedCategoryId(null);
+        return;
+      }
 
-    try {
-      const response = await fetch(
-        `${url}/api/sub-category?categoryId=${categoryId}`
-      );
+      try {
+        const response = await fetch(
+          `${url}/api/sub-category?categoryId=${categoryId}`
+        );
 
-      const data = await response.json();
+        const data = await response.json();
 
-      setSubcategories(data || []); // Ensure fallback to empty array
-      setExpandedCategoryId(categoryId);
-    } catch (error) {
-      console.error("Error fetching subcategories:", error);
-      setSubcategories([]); // Handle errors gracefully
-    }
-  };
-
-  // Automatically expand the first category on initial render
+        setSubcategories(data || []);
+        setExpandedCategoryId(categoryId);
+      } catch (error) {
+        console.error("Error fetching subcategories:", error);
+        setSubcategories([]);
+      }
+    },
+    [expandedCategoryId, url]
+  );
+  // initially render first category
   useEffect(() => {
     if (getData.length > 0) {
       const firstCategoryId = getData[0].cat_id;
 
-      // Only fetch if the expandedCategoryId is not already set
       if (expandedCategoryId === null) {
         handleGetSubData(firstCategoryId);
       }
     }
-    // Removed `handleGetSubData` from the dependency array
-    // Added `expandedCategoryId` to ensure one-time execution
-  });
+  }, [expandedCategoryId, getData, handleGetSubData]);
 
   const getIconForCategory = (categoryId) => {
     const icon = categoryIcons.find((icon) => icon.id === categoryId);

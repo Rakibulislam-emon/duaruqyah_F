@@ -7,6 +7,7 @@ const DuaContext = createContext();
 // Create a provider component
 export const DuaProvider = ({ children }) => {
   const [subcategoryId, setSubcategoryId] = useState(null);
+  console.log(subcategoryId);
   const [sectionTitle, setSectionTitle] = useState(null)
 
   return (

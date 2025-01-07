@@ -11,12 +11,13 @@ const db = new sqlite3.Database(path.resolve('./public/dua_main.sqlite'), (err) 
 });
 
 export default function handler(req, res) {
-    const { subCategoryId } = req.query;
+    const { subcategoryId } = req.query;
 
+    console.log(subcategoryId ,'from 16');
     // Check if subCategoryId is provided
-    if (subCategoryId) {
+    if (subcategoryId) {
         const query = 'SELECT * FROM dua WHERE subcat_id = ?';
-        const params = [subCategoryId];
+        const params = [subcategoryId];
 
         db.all(query, params, (err, rows) => {
             if (err) {
@@ -26,7 +27,7 @@ export default function handler(req, res) {
             }
         });
     } else {
-        // If no subCategoryId is provided, return all duas
+        // If no subcategoryId is provided, return all duas
         const query = 'SELECT * FROM dua';
 
         db.all(query, [], (err, rows) => {

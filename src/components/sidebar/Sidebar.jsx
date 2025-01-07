@@ -21,7 +21,7 @@ export default function Sidebar() {
           {middleIcons.map(({ component: Icon, key }) => (
             <Icon
               key={key}
-              className="text-3xl text-gray-500 hover:text-green-200"
+              className="text-3xl text-gray-500 hover:text-green-200 cursor-pointer"
             />
           ))}
         </div>
@@ -38,7 +38,7 @@ export default function Sidebar() {
           <Icon
             key={key}
             size={24}
-            className="text-gray-500 mx-4 hover:text-green-500"
+            className="text-gray-500 mx-4 hover:text-green-500  cursor-pointer"
           />
         ))}
       </div>
