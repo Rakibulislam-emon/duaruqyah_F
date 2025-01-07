@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="relative flex items-center">
         <input
           type="text"
-          placeholder="Search by Dua Name"
+          placeholder="Search by Dua reference"
           className="w-52 md:w-[370px] lg:w-[400px] h-12 text-sm lg:text-lg border-2 lg:px-4 px-3 outline-none rounded-lg"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

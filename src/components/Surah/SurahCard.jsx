@@ -20,7 +20,7 @@ export default function SurahCard() {
         const response = await fetch(
           subcategoryId
             ? `${url}/api/duas?subcategoryId=${subcategoryId}`
-            : `${url}/api/duas?subcategoryId=${1}`
+            : `${url}/api/duas`
         );
         const data = await response.json();
         setSectionTitle(data[1]?.dua_name_en);

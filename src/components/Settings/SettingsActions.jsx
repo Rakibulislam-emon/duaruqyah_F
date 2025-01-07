@@ -35,7 +35,7 @@ export default function SettingsActions() {
           </span>
         </div>
         <div className="flex justify-center gap-x-4    mt-4">
-          <button className="bg-green-500  text-white px-4 py-2 rounded hover:bg-blue-600">
+          <button className="bg-green-500  text-white px-4 py-2 rounded hover:bg-green-600">
             English
           </button>
           <button className=" border px-4 py-2 rounded ">

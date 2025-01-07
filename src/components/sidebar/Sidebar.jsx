@@ -19,10 +19,12 @@ export default function Sidebar() {
         {/* Middle Icons */}
         <div className="space-y-8">
           {middleIcons.map(({ component: Icon, key }) => (
-            <Icon
-              key={key}
-              className="text-3xl text-gray-500 hover:text-green-200 cursor-pointer"
-            />
+           <div key={key} className='border p-2 rounded-full bg-[#e8f0f5]'>
+              <Icon
+                key={key}
+                className="text-3xl text-gray-500  hover:text-black cursor-pointer"
+              />
+           </div>
           ))}
         </div>
 
